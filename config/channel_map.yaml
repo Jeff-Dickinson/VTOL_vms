@@ -1,0 +1,62 @@
+# RC channel mapping for FlySky FS-R9B (8 channels)
+
+channels:
+  roll:
+    channel: 1
+    min_us: 1000
+    center_us: 1500
+    max_us: 2000
+    deadband_us: 20         # ±20μs around center = zero
+    expo: 0.3               # 0=linear, 1=full exponential
+    reversed: false
+
+  pitch:
+    channel: 2
+    min_us: 1000
+    center_us: 1500
+    max_us: 2000
+    deadband_us: 20
+    expo: 0.3
+    reversed: false
+
+  throttle:
+    channel: 3
+    min_us: 1000
+    max_us: 2000
+    deadband_us: 0          # No deadband on throttle
+    expo: 0.0               # Linear throttle
+    reversed: false
+
+  yaw:
+    channel: 4
+    min_us: 1000
+    center_us: 1500
+    max_us: 2000
+    deadband_us: 20
+    expo: 0.2
+    reversed: false
+
+  flight_mode:
+    channel: 5
+    # 3-position switch thresholds
+    hover_max_us: 1300      # Below = HOVER
+    transition_max_us: 1700 # Below = TRANSITION, above = CRUISE
+
+  tilt_override:
+    channel: 6
+    min_us: 1000            # Full vertical
+    max_us: 2000            # Full horizontal
+
+  flaps:
+    channel: 7
+    threshold_us: 1500      # Below = retracted, above = deployed
+
+  kill_switch:
+    channel: 8
+    threshold_us: 1500      # Above = KILL (immediate motor stop)
+
+# Arming sequence: throttle low + yaw full right, held 2 seconds
+arming:
+  throttle_max_us: 1050     # Throttle must be below this
+  yaw_min_us: 1900          # Yaw must be above this (full right)
+  hold_time_s: 2.0

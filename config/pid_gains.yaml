@@ -1,0 +1,48 @@
+# PID tuning parameters
+# Hot-reloadable via SIGHUP signal
+
+hover:
+  roll:
+    kp: 4.0
+    ki: 0.5
+    kd: 0.3
+    output_min: -1.0
+    output_max: 1.0
+    integral_max: 0.4       # Anti-windup clamp
+  pitch:
+    kp: 4.0
+    ki: 0.5
+    kd: 0.3
+    output_min: -1.0
+    output_max: 1.0
+    integral_max: 0.4
+  yaw:
+    kp: 2.0
+    ki: 0.2
+    kd: 0.1
+    output_min: -1.0
+    output_max: 1.0
+    integral_max: 0.3
+
+cruise:
+  roll:
+    kp: 2.0
+    ki: 0.3
+    kd: 0.2
+    output_min: -1.0
+    output_max: 1.0
+    integral_max: 0.3
+  pitch:
+    kp: 2.5
+    ki: 0.3
+    kd: 0.2
+    output_min: -1.0
+    output_max: 1.0
+    integral_max: 0.3
+  yaw:
+    kp: 1.5
+    ki: 0.1
+    kd: 0.1
+    output_min: -1.0
+    output_max: 1.0
+    integral_max: 0.2

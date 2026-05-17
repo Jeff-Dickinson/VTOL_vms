@@ -1,0 +1,23 @@
+[build-system]
+requires = ["setuptools>=68.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "vms"
+version = "0.1.0"
+description = "Vehicle Management System for VTOL POC"
+requires-python = ">=3.9"
+dependencies = [
+    "PyYAML>=6.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0",
+]
+
+[project.scripts]
+vms-start = "vms.main:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]

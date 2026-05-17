@@ -1,0 +1,89 @@
+# Vehicle hardware configuration
+# Pin assignments, servo limits, motor config for VTOL POC
+
+i2c:
+  bus: 1
+  bno085_addr: 0x4A
+  pca9685_addr: 0x40
+
+# PCA9685 channel assignments (0-15)
+pwm_channels:
+  motor_left: 0
+  motor_right: 1
+  tilt_left: 2
+  tilt_right: 3
+  aileron_left: 4
+  aileron_right: 5
+  flap_left: 6
+  flap_right: 7
+  rudder: 8
+
+# ESC configuration
+motors:
+  type: "DJI 2212/920KV"
+  pwm_min_us: 1000       # ESC minimum (motor off)
+  pwm_max_us: 2000       # ESC maximum (full throttle)
+  pwm_arm_us: 1000       # Arming pulse width
+  direction_left: "CW"
+  direction_right: "CCW"
+
+# Servo limits (microseconds)
+servos:
+  tilt_left:
+    min_us: 1000          # Full vertical (hover)
+    center_us: 1500
+    max_us: 2000          # Full horizontal (cruise)
+    reversed: false
+  tilt_right:
+    min_us: 1000
+    center_us: 1500
+    max_us: 2000
+    reversed: true        # Mirror of left
+  aileron_left:
+    min_us: 1000
+    center_us: 1500
+    max_us: 2000
+    reversed: false
+  aileron_right:
+    min_us: 1000
+    center_us: 1500
+    max_us: 2000
+    reversed: true
+  flap_left:
+    min_us: 1000
+    center_us: 1500
+    max_us: 2000
+    reversed: false
+  flap_right:
+    min_us: 1000
+    center_us: 1500
+    max_us: 2000
+    reversed: true
+  rudder:
+    min_us: 1000
+    center_us: 1500
+    max_us: 2000
+    reversed: false
+
+# RC input GPIO pins (BCM numbering, after 5V→3.3V level shifter)
+rc_gpio_pins:
+  ch1: 5
+  ch2: 6
+  ch3: 13
+  ch4: 19
+  ch5: 26
+  ch6: 12
+  ch7: 16
+  ch8: 20
+
+# Safety
+safety:
+  max_roll_deg: 60.0
+  max_pitch_deg: 60.0
+  rc_timeout_ms: 500
+  watchdog_timeout_ms: 50   # Control loop watchdog (must tick within this)
+
+# Transition
+transition:
+  duration_s: 5.0           # Default hover→cruise transition time
+  min_airspeed_ms: 0.0      # No airspeed sensor yet; time-based only
