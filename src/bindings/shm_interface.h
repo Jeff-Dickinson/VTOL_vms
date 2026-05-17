@@ -94,4 +94,14 @@ typedef struct {
 
 } vms_shared_state_t;
 
+/**
+ * Get pointer to the shared state singleton.
+ */
+vms_shared_state_t *vms_shm_get(void);
+
+/**
+ * Initialize shared state to defaults (zeroed, DISARMED mode).
+ */
+void vms_shm_init(void);
+
 #endif /* VMS_SHM_INTERFACE_H */
